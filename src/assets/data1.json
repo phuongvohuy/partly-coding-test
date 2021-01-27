@@ -1,0 +1,112 @@
+{
+	"data": {
+			"uvdb": {
+					"vehicle_selector": {
+							"uvdb_models": {
+									"items": [
+											{
+													"id": 103626,
+													"name": "1500",
+													"uvdb_base_vehicle": null
+											},
+											{
+													"id": 107032,
+													"name": "1500,1600",
+													"uvdb_base_vehicle": null
+											},
+											{
+													"id": 103627,
+													"name": "1600",
+													"uvdb_base_vehicle": null
+											},
+											{
+													"id": 107033,
+													"name": "166",
+													"uvdb_base_vehicle": null
+											},
+											{
+													"id": 107034,
+													"name": "181",
+													"uvdb_base_vehicle": null
+											},
+											{
+													"id": 107035,
+													"name": "411,412",
+													"uvdb_base_vehicle": null
+											},
+											{
+													"id": 64878,
+													"name": "Beetle",
+													"uvdb_base_vehicle": null
+											},
+											{
+													"id": 103629,
+													"name": "BEETLE TYPE 1",
+													"uvdb_base_vehicle": null
+											},
+											{
+													"id": 64984,
+													"name": "Campmobile",
+													"uvdb_base_vehicle": null
+											},
+											{
+													"id": 65993,
+													"name": "Fastback",
+													"uvdb_base_vehicle": null
+											},
+											{
+													"id": 107041,
+													"name": "Fridolin",
+													"uvdb_base_vehicle": null
+											},
+											{
+													"id": 107050,
+													"name": "K 70",
+													"uvdb_base_vehicle": null
+											},
+											{
+													"id": 66208,
+													"name": "Karmann Ghia",
+													"uvdb_base_vehicle": null
+											},
+											{
+													"id": 103624,
+													"name": "Kombi",
+													"uvdb_base_vehicle": null
+											},
+											{
+													"id": 67081,
+													"name": "Sedan",
+													"uvdb_base_vehicle": null
+											},
+											{
+													"id": 70946,
+													"name": "Squareback",
+													"uvdb_base_vehicle": null
+											},
+											{
+													"id": 74016,
+													"name": "Standard",
+													"uvdb_base_vehicle": null
+											},
+											{
+													"id": 64902,
+													"name": "Transporter",
+													"uvdb_base_vehicle": null
+											},
+											{
+													"id": 107069,
+													"name": "Variant",
+													"uvdb_base_vehicle": null
+											},
+											{
+													"id": 107070,
+													"name": "Variant I",
+													"uvdb_base_vehicle": null
+											}
+									]
+							}
+					}
+			}
+	}
+}

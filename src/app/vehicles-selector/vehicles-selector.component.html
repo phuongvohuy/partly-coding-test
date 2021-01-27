@@ -1,0 +1,24 @@
+<div class="vehicle-selector-page">
+	<h1 class="title">Vehicle Selector Page</h1>
+	<section class="selector-options-section">
+		<label class="option-title">Choose Selector</label>
+		<mat-radio-group [value]="selectedSelector" (change)="onChangeSelector($event)">
+			<mat-radio-button class="example-margin" value="mmy">MMY</mat-radio-button>
+			<mat-radio-button class="example-margin" value="ymm">YMM</mat-radio-button>
+		</mat-radio-group>
+	</section>
+	<section class="selector-section">
+		<ymm-selector *ngIf="selectedSelector === 'ymm'"
+			(onDoneSelectorEvent)="onFinishedSelector($event)">
+		</ymm-selector>
+		<mmy-selector *ngIf="selectedSelector === 'mmy'"
+			>
+		</mmy-selector>
+	</section>
+	<div class="vehicle_section" *ngIf="vehicles">
+		<div *ngFor="let vehicle of vehicles">
+			{{vehicle.name}}
+		</div>
+		<p *ngIf="vehicles.length === 0">There is no vehicle with selectors</p>
+	</div>
+</div>

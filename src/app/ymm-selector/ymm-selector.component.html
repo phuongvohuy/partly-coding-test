@@ -1,0 +1,27 @@
+<div class="ymm-selector-container">
+	<p>Choose Your Vehicle using YMM</p>
+	<mat-form-field appearance="fill">
+		<mat-label>Years</mat-label>
+		<mat-select (selectionChange)="onYearChange($event)" [value]="selectedYear ? selectedYear.id : null">
+			<mat-option *ngFor="let year of years" [value]="year.id">
+				{{year.id}}
+			</mat-option>
+		</mat-select>
+	</mat-form-field>
+	<mat-form-field appearance="fill">
+		<mat-label>Makes</mat-label>
+		<mat-select (selectionChange)="onManufacturerChange($event)" [value]="selectedManufacturer ? selectedManufacturer.id : null">
+			<mat-option *ngFor="let manu of manufaturers" [value]="manu.id">
+				{{manu.name}}
+			</mat-option>
+		</mat-select>
+	</mat-form-field>
+	<mat-form-field appearance="fill">
+		<mat-label>Models</mat-label>
+		<mat-select (selectionChange)="onModelChange($event)" [value]="selectedModel ? selectedModel.id : null">
+			<mat-option *ngFor="let model of models" [value]="model.id">
+				{{model.name}}
+			</mat-option>
+		</mat-select>
+	</mat-form-field>
+</div>
