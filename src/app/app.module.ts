@@ -17,7 +17,6 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { GraphQLModule } from './graphql.module';
 
 // declare all services
-import {ApiService} from './services/api.service';
 import {YearsApiService} from './services/years/years.api.service';
 import {YearService} from './services/years/years.service';
 import {ManufacturerApiService} from './services/manufacturer/manufacturer.api.service';
@@ -54,7 +53,6 @@ import { MmySelectorComponent } from './mmy-selector/mmy-selector.component';
 		MatProgressSpinnerModule
   ],
   providers: [
-		ApiService,
 		YearsApiService,
 		YearService,
 		ManufacturerService,

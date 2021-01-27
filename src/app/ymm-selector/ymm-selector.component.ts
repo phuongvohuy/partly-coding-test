@@ -73,10 +73,10 @@ export class YmmSelectorComponent implements OnInit {
 		
 		this.manufaturers = await this.manufacturerService.retrieveManufactureByYear(year).toPromise();
 
-		this.onShowLoader.emit(true);
+		this.onShowLoader.emit(false);
 
 		// check if manufaturers has only one element, then trigger the onManufacturerChange flow.
-		if(this.manufaturers.length > 1) {
+		if(this.manufaturers.length === 1) {
 			this.onManufacturerChange({value: this.manufaturers[0].id});
 		}
 	}
@@ -93,7 +93,7 @@ export class YmmSelectorComponent implements OnInit {
 		this.onShowLoader.emit(false);
 
 		// check if models has only one element, then trigger the onModelChange flow.
-		if(this.models.length > 1) {
+		if(this.models.length === 1) {
 			this.onModelChange({value: this.models[0].id});
 		}
 	}

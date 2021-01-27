@@ -18,9 +18,7 @@ export class VehicleSelectorComponent implements OnInit {
 
 	selectedSelector: string = MMY;	//default value is MMY
 	
-	constructor(private vehicleService: VehicleService) {
-		
-	}
+	constructor(private vehicleService: VehicleService) {}
 
 	ngOnInit() {
 		this.isShowLoader = false;
@@ -31,14 +29,15 @@ export class VehicleSelectorComponent implements OnInit {
 	}
 
 	// handle event from MMY/YMM selectors component
-	onFinishedSelector(params: YMMParameter) {
+	async onFinishedSelector(params: YMMParameter) {
+		this.onShowLoader(true);
 		const { year, manufacturer, model} = params
 
 		console.log('onFinishedSelector >> ', year, manufacturer, model);
 
-		this.vehicleService.retrieveManufactureByYear(year, manufacturer, model).subscribe((result: Array<Vehicle>) => {
-			this.vehicles = result;
-		});	
+		this.vehicles = await this.vehicleService.retrieveManufactureByYear(year, manufacturer, model).toPromise();
+
+		this.onShowLoader(false);
 	}
 
 	onChangeSelector(e: MatRadioChange) {
