@@ -21,11 +21,11 @@ export class YearService {
 		);
 	}
 
-	public retrieveYearsByManufactorAndModel(manufacturerID: string, modelID: string): Observable<Array<Year>> {
+	public retrieveYearsByManufactorAndModel(manufacturerID?: number, modelID?: number): Observable<Array<Year>> {
 		const params: YearQueryParams = {
 			limit: 500,
-			uvdb_make_id: parseFloat(manufacturerID), 
-			uvdb_model_id: parseFloat(modelID),
+			uvdb_make_id: manufacturerID, 
+			uvdb_model_id: modelID,
 		};
 
 		return this.yearApiService.queryYearsForVehicle(params).pipe(

@@ -19,9 +19,9 @@ export class ModelService {
 		);
 	}
 
-	public retrieveModelsByManufacturer(manufacturerID: string): Observable<Array<Model>> {
+	public retrieveModelsByManufacturer(manufacturerID?: number): Observable<Array<Model>> {
 		const params = {
-			uvdb_make_id: parseFloat(manufacturerID),
+			uvdb_make_id: manufacturerID,
 		};
 		return this.modelApiService.queryAllModels(params).pipe(
 			map((data: any) => data.items as Array<Model>)

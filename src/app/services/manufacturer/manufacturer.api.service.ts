@@ -43,7 +43,6 @@ export class ManufacturerApiService {
 	}
 
 	public queryAllMakes(params: ManuParams): Observable<any> {
-		console.log('queryAllMakes');
 		const {page, limit, uvdb_year_id} = params;
 		return this.appolo.query({
 			query: retrieveMakeQuery,

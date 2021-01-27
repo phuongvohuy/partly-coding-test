@@ -12,7 +12,7 @@
 			(onDoneSelectorEvent)="onFinishedSelector($event)">
 		</ymm-selector>
 		<mmy-selector *ngIf="selectedSelector === 'mmy'"
-			>
+		(onDoneSelectorEvent)="onFinishedSelector($event)">
 		</mmy-selector>
 	</section>
 	<div class="vehicle_section" *ngIf="vehicles">
