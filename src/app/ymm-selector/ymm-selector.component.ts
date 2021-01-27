@@ -53,7 +53,6 @@ export class YmmSelectorComponent implements OnInit {
 
   async ngOnInit() {
 		this.years = await this.yearService.retrieveAllYears().toPromise();
-		this.selectedYear = this.years.length > 1 ? this.years[0] : undefined;
 	}
 
 	async onYearChange(e: MatSelectChange) {
@@ -66,21 +65,29 @@ export class YmmSelectorComponent implements OnInit {
 		const year: number|undefined = this.selectedYear ? this.selectedYear.id : undefined;
 		
 		this.manufaturers = await this.manufacturerService.retrieveManufactureByYear(year).toPromise();
+
+		// check if manufaturers has only one element, then trigger the onManufacturerChange flow.
+		if(this.manufaturers.length > 1) {
+			this.onManufacturerChange({value: this.manufaturers[0].id});
+		}
 	}
 
-	async onManufacturerChange(e: MatSelectChange) {
+	async onManufacturerChange(e: MatSelectChange|{value: number}) {
 		this.selectedManufacturer = this.manufaturers.find((item:Manufacturer) => item.id === e.value);
 		this.resetModel();
 
 		const year: number|undefined = this.selectedYear ? this.selectedYear.id : undefined;
 		const manufacturer: number|undefined = this.selectedManufacturer ? this.selectedManufacturer.id: undefined;
 
-		console.log('selectedManufacturer ', this.selectedManufacturer);
 		this.models = await this.modelService.retrieveModelsByYearAndManufacturer(year, manufacturer).toPromise();
-		console.log('modelService >', this.models);
+
+		// check if models has only one element, then trigger the onModelChange flow.
+		if(this.models.length > 1) {
+			this.onModelChange({value: this.models[0].id});
+		}
 	}
 
-	onModelChange(e: MatSelectChange) {
+	onModelChange(e: MatSelectChange|{value: number}) {
 		this.selectedModel = this.models.find((item: Model) => item.id === e.value);
 		
 		const year: number|undefined = this.selectedYear ? this.selectedYear.id : undefined;

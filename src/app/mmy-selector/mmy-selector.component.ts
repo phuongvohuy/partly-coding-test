@@ -69,7 +69,7 @@ export class MmySelectorComponent implements OnInit {
 		this.models = await this.modelService.retrieveModelsByManufacturer(manufacturer).toPromise();
 		
 		// check if models has only one element, then trigger the onModelChange flow.
-		if(this.models.length > 1) { 
+		if(this.models.length === 1) { 
 			// trigger onModelChange flow
 			this.onModelChange({value: this.models[0].id});
 		}
@@ -89,7 +89,7 @@ export class MmySelectorComponent implements OnInit {
 		console.log('this.years >> ', this.years);
 
 		// check if years has only one element, then trigger the onYearChange flow.
-		if(this.years.length > 1) {
+		if(this.years.length === 1) {
 			this.onYearChange({value: this.years[0].id})
 		}
 	}
