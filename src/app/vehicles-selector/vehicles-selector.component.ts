@@ -13,6 +13,7 @@ const YMM: string = 'ymm';
   styleUrls: ['./vehicles-selector.component.sass']
 })
 export class VehicleSelectorComponent implements OnInit {
+	isShowLoader: boolean|undefined;
 	vehicles: Array<Vehicle> | undefined;
 
 	selectedSelector: string = MMY;	//default value is MMY
@@ -22,7 +23,11 @@ export class VehicleSelectorComponent implements OnInit {
 	}
 
 	ngOnInit() {
+		this.isShowLoader = false;
+	}
 
+	onShowLoader(isShow: boolean) {
+		this.isShowLoader = isShow;
 	}
 
 	// handle event from MMY/YMM selectors component

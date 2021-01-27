@@ -1,5 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, AfterViewChecked, AfterViewInit } from '@angular/core';
 import { MatSelectChange } from '@angular/material/select';
+import { delay } from 'rxjs/operators';
 import { Manufacturer } from '../services/manufacturer/manufacturer.api.service';
 import { ManufacturerService } from '../services/manufacturer/manufacturer.service';
 import { Model } from '../services/models/models.api.service';
@@ -29,6 +30,7 @@ export class MmySelectorComponent implements OnInit {
 	selectedModel: Model|undefined = undefined;
 
 	@Output() onDoneSelectorEvent = new EventEmitter<MMYParameter>();
+	@Output() onShowLoader = new EventEmitter<boolean>();
 
   constructor(
 		private yearService: YearService,
@@ -52,14 +54,17 @@ export class MmySelectorComponent implements OnInit {
 	}
 
   async ngOnInit() {
+		// trick to remove the error message when display loader which try to change value in the parent after it's checked
+		await delay(100);
+		this.onShowLoader.emit(true);
 		this.manufaturers = await this.manufacturerService.retrieveAllManufacturer().toPromise();
-		console.log('this.manufaturers ', this.manufaturers);
+		this.onShowLoader.emit(false);
 	}
 
 	async onManufacturerChange(e: MatSelectChange) {
+		this.onShowLoader.emit(true);
 		this.selectedManufacturer = this.manufaturers.find((item: Manufacturer) => item.id === e.value);
-		console.log('onManufacturerChange selectedManufacturer', this.selectedManufacturer);
-
+		
 		//reset models and years
 		this.resetModel();
 		this.resetYears();
@@ -67,6 +72,7 @@ export class MmySelectorComponent implements OnInit {
 		const manufacturer: number|undefined = this.selectedManufacturer ? this.selectedManufacturer.id : undefined;
 		
 		this.models = await this.modelService.retrieveModelsByManufacturer(manufacturer).toPromise();
+		this.onShowLoader.emit(false);
 		
 		// check if models has only one element, then trigger the onModelChange flow.
 		if(this.models.length === 1) { 
@@ -76,8 +82,8 @@ export class MmySelectorComponent implements OnInit {
 	}
 
 	async onModelChange(e: MatSelectChange | {value: number}) {
+		this.onShowLoader.emit(true);
 		this.selectedModel = this.models.find((item: Model) => item.id === e.value);
-		console.log('onModelChange selectedModel', this.selectedModel);
 
 		//reset years
 		this.resetYears();
@@ -86,7 +92,7 @@ export class MmySelectorComponent implements OnInit {
 		const model: number|undefined = this.selectedModel ? this.selectedModel.id : undefined;
 		
 		this.years = await this.yearService.retrieveYearsByManufactorAndModel(manufacturer, model).toPromise();
-		console.log('this.years >> ', this.years);
+		this.onShowLoader.emit(false);
 
 		// check if years has only one element, then trigger the onYearChange flow.
 		if(this.years.length === 1) {
@@ -100,8 +106,6 @@ export class MmySelectorComponent implements OnInit {
 		const manufacturer: number|undefined = this.selectedManufacturer ? this.selectedManufacturer.id : undefined;
 		const model: number|undefined = this.selectedModel ? this.selectedModel.id : undefined;
 		const year: number| undefined = this.selectedYear ? this.selectedYear.id : undefined;
-
-		console.log('onYearChange >>', this.selectedManufacturer, this.selectedModel, this.selectedYear);
 
 		this.onDoneSelectorEvent.emit({
 			year,

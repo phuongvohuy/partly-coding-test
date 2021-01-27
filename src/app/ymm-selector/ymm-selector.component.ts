@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatSelectChange } from '@angular/material/select';
+import { delay } from 'rxjs/operators';
 import { Manufacturer } from '../services/manufacturer/manufacturer.api.service';
 import { ManufacturerService } from '../services/manufacturer/manufacturer.service';
 import { Model } from '../services/models/models.api.service';
@@ -29,6 +30,7 @@ export class YmmSelectorComponent implements OnInit {
 	selectedModel: Model|undefined = undefined;
 
 	@Output() onDoneSelectorEvent = new EventEmitter<YMMParameter>();
+	@Output() onShowLoader = new EventEmitter<boolean>();
 
   constructor(
 		private yearService: YearService,
@@ -52,10 +54,15 @@ export class YmmSelectorComponent implements OnInit {
 	}
 
   async ngOnInit() {
+		// trick to remove the error message when display loader which try to change value in the parent after it's checked
+		await delay(100);
+		this.onShowLoader.emit(true);
 		this.years = await this.yearService.retrieveAllYears().toPromise();
+		this.onShowLoader.emit(false);
 	}
 
 	async onYearChange(e: MatSelectChange) {
+		this.onShowLoader.emit(true);
 		this.selectedYear = this.years.find((item: Year) => item.id === e.value);
 		
 		// reset manufacturer and model
@@ -66,6 +73,8 @@ export class YmmSelectorComponent implements OnInit {
 		
 		this.manufaturers = await this.manufacturerService.retrieveManufactureByYear(year).toPromise();
 
+		this.onShowLoader.emit(true);
+
 		// check if manufaturers has only one element, then trigger the onManufacturerChange flow.
 		if(this.manufaturers.length > 1) {
 			this.onManufacturerChange({value: this.manufaturers[0].id});
@@ -73,6 +82,7 @@ export class YmmSelectorComponent implements OnInit {
 	}
 
 	async onManufacturerChange(e: MatSelectChange|{value: number}) {
+		this.onShowLoader.emit(true);
 		this.selectedManufacturer = this.manufaturers.find((item:Manufacturer) => item.id === e.value);
 		this.resetModel();
 
@@ -80,6 +90,7 @@ export class YmmSelectorComponent implements OnInit {
 		const manufacturer: number|undefined = this.selectedManufacturer ? this.selectedManufacturer.id: undefined;
 
 		this.models = await this.modelService.retrieveModelsByYearAndManufacturer(year, manufacturer).toPromise();
+		this.onShowLoader.emit(false);
 
 		// check if models has only one element, then trigger the onModelChange flow.
 		if(this.models.length > 1) {

@@ -12,6 +12,7 @@ import { MatOptionModule } from '@angular/material/core';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 import { GraphQLModule } from './graphql.module';
 
@@ -49,7 +50,8 @@ import { MmySelectorComponent } from './mmy-selector/mmy-selector.component';
 		MatOptionModule,
 		MatSliderModule,
 		MatCheckboxModule,
-		MatRadioModule
+		MatRadioModule,
+		MatProgressSpinnerModule
   ],
   providers: [
 		ApiService,
