@@ -13,7 +13,8 @@ export class VehicleService {
 		const params:VehicleParams = {
 			uvdb_make_id: manufacturerID,
 			uvdb_model_id: modelID, 
-			uvdb_year: year
+			uvdb_year: year,
+			limit: 500
 		}
 		return this.vehicleApiService.queryAllVehicles(params).pipe(
 			map((data: any) => data.items as Array<Vehicle>)

@@ -11,7 +11,8 @@ export class ManufacturerService {
 
 	public retrieveManufactureByYear(year?: number): Observable<Array<Manufacturer>> {
 		const params = {
-			uvdb_year_id: year
+			uvdb_year_id: year,
+			limit: 500
 		}
 		return this.manuApiService.queryAllMakes(params).pipe(
 			map((data: any) => data.items as Array<Manufacturer>)
@@ -19,7 +20,10 @@ export class ManufacturerService {
 	}
 
 	public retrieveAllManufacturer(): Observable<Array<Manufacturer>> {
-		return this.manuApiService.queryAllMakes({}).pipe(
+		const params = {
+			limit: 500
+		};
+		return this.manuApiService.queryAllMakes(params).pipe(
 			map((data: any) => data.items as Array<Manufacturer>)
 		)
 	}
