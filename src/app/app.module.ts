@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import {HomeScreen} from './home-screen/home-screen.component';
-import { ManufactorListScreenComponent } from './manufactor-list-screen/manufactor-list-screen.component';
+import { ManufacturerListScreenComponent } from './manufacturer-list-screen/manufacturer-list-screen.component';
 
 import { GraphQLModule } from './graphql.module';
 
@@ -26,7 +26,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
   declarations: [
 		AppComponent,
 		HomeScreen,
-		ManufactorListScreenComponent
+		ManufacturerListScreenComponent
   ],
   imports: [
     BrowserModule,

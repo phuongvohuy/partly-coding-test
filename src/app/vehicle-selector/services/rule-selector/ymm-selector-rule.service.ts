@@ -5,6 +5,7 @@ import { Year, YearQueryParams, YearsApiService } from "../api/years.api.service
 import { 
 	ManufacturerServiceSelectorItem, 
 	ModelServiceSelectorItem, 
+	SelectorItem, 
 	YearServiceSelectorItem 
 } from "../item-selector/item-selector.service";
 import { 
@@ -23,9 +24,9 @@ export const MODEL_NAME_SELECTOR: string = 'Models';
 // This class for handle how to connect Selector together, constraint data between selector items
 const applyVehicleLoaderMixn = (Base: any) => {
 	return class VehicleLoaderMixin extends Base {
-		protected yearItemSelector: YearServiceSelectorItem | undefined;
-		protected manufacturerItemSelector: ManufacturerServiceSelectorItem | undefined;
-		protected modelItemSelector: ModelServiceSelectorItem | undefined;
+		protected yearItemSelector: SelectorItem | undefined;
+		protected manufacturerItemSelector: SelectorItem | undefined;
+		protected modelItemSelector: SelectorItem | undefined;
 
 		// load data for year base on saveData
 		protected async loadDataForYear(savedData: Array<NameSelectorParams>): Promise<Array<Year>> {
@@ -99,9 +100,9 @@ export class YMMSelectorRule extends VehicleSelectorLoader implements SelectorRu
 	name: string = 'YMM';
 	
 	constructor(
-		protected yearItemSelector: YearServiceSelectorItem,
-		protected manufacturerItemSelector: ManufacturerServiceSelectorItem,
-		protected modelItemSelector: ModelServiceSelectorItem
+		protected yearItemSelector: SelectorItem,
+		protected manufacturerItemSelector: SelectorItem,
+		protected modelItemSelector: SelectorItem
 	) {
 		super();
 
@@ -124,7 +125,6 @@ export class YMMSelectorRule extends VehicleSelectorLoader implements SelectorRu
 	}
 
 	async loadDataAtPosition(indexPosition: number): Promise<Array<any>> {
-		console.log('loadDataAtPosition  YMMSelectorRule >>', indexPosition);
 		const actionList: Array<Function> = [
 			this.loadDataForYear,
 			this.loadDataForManufacturer,

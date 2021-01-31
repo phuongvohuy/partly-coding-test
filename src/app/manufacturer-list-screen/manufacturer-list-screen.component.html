@@ -1,0 +1,25 @@
+<div class="vehicle-selector-page">
+	<h1 class="title">Manufacturer Local List</h1>
+	<!-- <section class="selector-options-section">
+		<label class="option-title">Choose Selector</label>
+		<mat-radio-group [value]="selectedSelector" (change)="onChangeSelector($event)">
+			<mat-radio-button class="example-margin" value="mmy">MMY</mat-radio-button>
+			<mat-radio-button class="example-margin" value="ymm">YMM</mat-radio-button>
+		</mat-radio-group>
+	</section> -->
+	<section>
+		<vehicle-selector-comp
+			(onShowLoader)="onShowLoader($event)"
+			(onDoneSelectorEvent)="onFinishedSelector($event)"
+			[ruleSelector]="mmyLocalRule"></vehicle-selector-comp>
+	</section>
+	<div class="vehicle_section" *ngIf="vehicles">
+		<div *ngFor="let vehicle of vehicles">
+			{{vehicle.name}}
+		</div>
+		<p *ngIf="vehicles.length === 0">There is no vehicle with selectors</p>
+	</div>
+	<div class="loader-container" *ngIf="isShowLoader">
+		<mat-spinner></mat-spinner>
+	</div>
+</div>

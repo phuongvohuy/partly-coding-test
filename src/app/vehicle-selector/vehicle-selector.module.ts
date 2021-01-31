@@ -26,6 +26,8 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MMYLocalSelectorFactory, MMYLocalSelectorRule } from './services/rule-selector/mmy-local-selector.service';
+import { HttpClient } from '@angular/common/http';
 
 
 @NgModule({
@@ -61,8 +63,12 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 			provide: MMYSelectorRule,
 			useFactory: MMYSelectorFactory,
 			deps: [YearsApiService, ManufacturerApiService, ModelApiService]
+		},
+		{
+			provide: MMYLocalSelectorRule,
+			useFactory: MMYLocalSelectorFactory,
+			deps: [YearsApiService, HttpClient, ModelApiService]
 		}
-		
 	],
 	exports: [
 		VehicleSelectorComponent
