@@ -23,11 +23,11 @@ const MMY: string = 'mmy';
 const YMM: string = 'ymm';
 
 @Component({
-  selector: 'vehicles-selector',
-  templateUrl: './vehicles-selector.component.html',
-  styleUrls: ['./vehicles-selector.component.sass']
+  selector: 'home-screen',
+  templateUrl: './home-screen.component.html',
+  styleUrls: ['./home-screen.component.sass']
 })
-export class VehicleSelectorComponent implements OnInit {
+export class HomeScreen implements OnInit {
 	isShowLoader: boolean|undefined;
 	vehicles: Array<Vehicle> | undefined;
 

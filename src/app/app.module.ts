@@ -5,13 +5,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import {VehicleSelectorComponent} from './vehicles-selector/vehicles-selector.component';
+import {HomeScreen} from './home-screen/home-screen.component';
 
 import { GraphQLModule } from './graphql.module';
 
 // declare all services
-import { SelectorComponent } from '../selector-module/selector/selector.component';
-
 import {VehicleSelectorModule} from './vehicle-selector/vehicle-selector.module';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -25,8 +23,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 @NgModule({
   declarations: [
 		AppComponent,
-		VehicleSelectorComponent,
-		SelectorComponent
+		HomeScreen
   ],
   imports: [
     BrowserModule,

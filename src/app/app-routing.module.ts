@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { VehicleSelectorComponent } from './vehicles-selector/vehicles-selector.component';
+import { HomeScreen } from './home-screen/home-screen.component';
 
 const routes: Routes = [{
-	path: '', component: VehicleSelectorComponent
+	path: '', component: HomeScreen
 }];
 
 @NgModule({
