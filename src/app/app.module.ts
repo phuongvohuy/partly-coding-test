@@ -6,6 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import {VehicleSelectorComponent} from './vehicles-selector/vehicles-selector.component';
+
+import { GraphQLModule } from './graphql.module';
+
+// declare all services
+import { SelectorComponent } from '../selector-module/selector/selector.component';
+
+import {VehicleSelectorModule} from './vehicle-selector/vehicle-selector.module';
+
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
@@ -14,28 +22,11 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
-import { GraphQLModule } from './graphql.module';
-
-// declare all services
-import {YearsApiService} from './services/years/years.api.service';
-import {YearService} from './services/years/years.service';
-import {ManufacturerApiService} from './services/manufacturer/manufacturer.api.service';
-import {ManufacturerService} from './services/manufacturer/manufacturer.service';
-import {ModelApiService} from './services/models/models.api.service';
-import {ModelService} from './services/models/models.service';
-import { VehicleApiService } from './services/vehicles/vehicle.api.service';
-import { VehicleService } from './services/vehicles/vehicle.service';
-import { YmmSelectorComponent } from './ymm-selector/ymm-selector.component';
-import { MmySelectorComponent } from './mmy-selector/mmy-selector.component';
-
-
-
 @NgModule({
   declarations: [
 		AppComponent,
 		VehicleSelectorComponent,
-		YmmSelectorComponent,
-		MmySelectorComponent
+		SelectorComponent
   ],
   imports: [
     BrowserModule,
@@ -43,9 +34,10 @@ import { MmySelectorComponent } from './mmy-selector/mmy-selector.component';
 		HttpClientModule,
 		GraphQLModule,
 		BrowserAnimationsModule,
-		MatSliderModule,
-		MatSelectModule,
+		VehicleSelectorModule,
+
 		MatFormFieldModule,
+		MatSelectModule,
 		MatOptionModule,
 		MatSliderModule,
 		MatCheckboxModule,
@@ -53,14 +45,7 @@ import { MmySelectorComponent } from './mmy-selector/mmy-selector.component';
 		MatProgressSpinnerModule
   ],
   providers: [
-		YearsApiService,
-		YearService,
-		ManufacturerService,
-		ManufacturerApiService,
-		ModelApiService,
-		ModelService,
-		VehicleApiService,
-		VehicleService
+		
 	],
   bootstrap: [AppComponent]
 })

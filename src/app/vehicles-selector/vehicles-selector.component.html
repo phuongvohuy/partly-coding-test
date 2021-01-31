@@ -7,15 +7,15 @@
 			<mat-radio-button class="example-margin" value="ymm">YMM</mat-radio-button>
 		</mat-radio-group>
 	</section>
-	<section class="selector-section">
-		<ymm-selector *ngIf="selectedSelector === 'ymm'"
+	<section>
+		<vehicle-selector-comp *ngIf="selectedSelector === 'ymm'"
+			(onShowLoader)="onShowLoader($event)"
 			(onDoneSelectorEvent)="onFinishedSelector($event)"
-			(onShowLoader)="onShowLoader($event)">
-		</ymm-selector>
-		<mmy-selector *ngIf="selectedSelector === 'mmy'"
-		(onDoneSelectorEvent)="onFinishedSelector($event)"
-		(onShowLoader)="onShowLoader($event)">
-		</mmy-selector>
+			[ruleSelector]="ymmRule"></vehicle-selector-comp>
+		<vehicle-selector-comp *ngIf="selectedSelector === 'mmy'"
+			(onShowLoader)="onShowLoader($event)"
+			(onDoneSelectorEvent)="onFinishedSelector($event)"
+			[ruleSelector]="mmyRule"></vehicle-selector-comp>
 	</section>
 	<div class="vehicle_section" *ngIf="vehicles">
 		<div *ngFor="let vehicle of vehicles">

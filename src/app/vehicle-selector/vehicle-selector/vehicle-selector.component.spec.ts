@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { YmmSelectorComponent } from './ymm-selector.component';
+import { VehicleSelectorComponent } from './vehicle-selector.component';
 
-describe('YmmSelectorComponent', () => {
-  let component: YmmSelectorComponent;
-  let fixture: ComponentFixture<YmmSelectorComponent>;
+describe('VehicleSelectorComponent', () => {
+  let component: VehicleSelectorComponent;
+  let fixture: ComponentFixture<VehicleSelectorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ YmmSelectorComponent ]
+      declarations: [ VehicleSelectorComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(YmmSelectorComponent);
+    fixture = TestBed.createComponent(VehicleSelectorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

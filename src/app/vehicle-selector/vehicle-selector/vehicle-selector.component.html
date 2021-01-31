@@ -1,0 +1,12 @@
+<div class="ymm-selector-container">
+	<p>Choose Your Vehicle using {{ruleName}}</p>
+	<mat-form-field appearance="fill" *ngFor="let selectorNameItem of selectorNameList">
+		<mat-label>{{selectorNameItem.title}}</mat-label>
+		<mat-select (selectionChange)="onDropDownChangeAtIndex($event, selectorNameItem)" 
+			[value]="selectorNameItem.selectedValue ? selectorNameItem.selectedValue.id : null">
+			<mat-option *ngFor="let data of selectorNameItem.selector.cachedData" [value]="data.id">
+				{{data.name ? data.name : data.id}}
+			</mat-option>
+		</mat-select>
+	</mat-form-field>
+</div>

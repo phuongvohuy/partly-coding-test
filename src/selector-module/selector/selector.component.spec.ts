@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MmySelectorComponent } from './mmy-selector.component';
+import { SelectorComponent } from './selector.component';
 
-describe('MmySelectorComponent', () => {
-  let component: MmySelectorComponent;
-  let fixture: ComponentFixture<MmySelectorComponent>;
+describe('SelectorComponent', () => {
+  let component: SelectorComponent;
+  let fixture: ComponentFixture<SelectorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MmySelectorComponent ]
+      declarations: [ SelectorComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MmySelectorComponent);
+    fixture = TestBed.createComponent(SelectorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
