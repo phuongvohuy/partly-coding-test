@@ -34,7 +34,6 @@ export const NameSelectorParamsHelper = {
 	}
 }
 
-
 export interface SelectorRule {
 	name: string,
 	loadDataAtPosition: (indexPosition: number) => Promise<Array<any>>;

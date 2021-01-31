@@ -37,7 +37,6 @@ export class MMYSelectorRule extends VehicleSelectorLoader {
 	}
 
 	async loadDataAtPosition(indexPosition: number): Promise<Array<any>> {
-		console.log('loadDataAtPosition  MMYSelectorRule >>', indexPosition);
 		const actionList: Array<Function> = [
 			this.loadDataForManufacturer,
 			this.loadDataForModel,
@@ -62,7 +61,6 @@ export class MMYSelectorRule extends VehicleSelectorLoader {
 }
 
 export const MMYSelectorFactory = ( yearApiService: YearsApiService, manufacturerService: ManufacturerApiService, modelApiService: ModelApiService) => {
-	console.log('MMYSelectorFactory>>');
 	const yearItemSelector: YearServiceSelectorItem = new YearServiceSelectorItem(yearApiService);
 	const manufacturerItemSelector: ManufacturerServiceSelectorItem = new ManufacturerServiceSelectorItem(manufacturerService);
 	const modelItemSelector: ModelServiceSelectorItem = new ModelServiceSelectorItem(modelApiService);

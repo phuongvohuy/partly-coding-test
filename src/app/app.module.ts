@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import {HomeScreen} from './home-screen/home-screen.component';
+import { ManufactorListScreenComponent } from './manufactor-list-screen/manufactor-list-screen.component';
 
 import { GraphQLModule } from './graphql.module';
 
@@ -20,10 +21,12 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
+
 @NgModule({
   declarations: [
 		AppComponent,
-		HomeScreen
+		HomeScreen,
+		ManufactorListScreenComponent
   ],
   imports: [
     BrowserModule,

@@ -58,8 +58,6 @@ export class HomeScreen implements OnInit {
 
 		this.vehicles = await this.vehicleService.retrieveManufactureByYear(year.id, manufacturer.id, model.id).toPromise();
 
-		console.log('this.vehicles', this.vehicles);
-
 		this.onShowLoader(false);
 	}
 

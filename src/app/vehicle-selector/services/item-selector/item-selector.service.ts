@@ -85,7 +85,7 @@ export class ManufacturerServiceSelectorItem implements SelectorItem {
 		this.cachedData = [];
 	}
 
-	async loadAll(): Promise<Array<Year>> {
+	async loadAll(): Promise<Array<Manufacturer>> {
 		const params = {
 			limit: LIMIT_NO
 		};

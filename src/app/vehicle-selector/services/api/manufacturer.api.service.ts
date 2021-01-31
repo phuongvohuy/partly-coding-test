@@ -1,5 +1,4 @@
 import { Injectable } from "@angular/core";
-//import { ApolloQueryResult } from "@apollo/client";
 import { Apollo, gql } from "apollo-angular";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
