@@ -7,7 +7,7 @@ import {ManufacturerListScreenComponent} from './manufacturer-list-screen/manufa
 const routes: Routes = [{
 	path: '', component: HomeScreen	
 }, {
-	path: 'makes/makeA', component: ManufacturerListScreenComponent
+	path: 'makes/localVehicle', component: ManufacturerListScreenComponent
 }];
 
 @NgModule({

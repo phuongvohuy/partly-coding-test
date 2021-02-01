@@ -29,6 +29,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { MMYLocalSelectorFactory, MMYLocalSelectorRule } from './services/rule-selector/mmy-local-selector.service';
 import { HttpClient } from '@angular/common/http';
 
+import {VehicleDataService} from '../vehicle-data.service';
+
 
 @NgModule({
   declarations: [
@@ -54,6 +56,7 @@ import { HttpClient } from '@angular/common/http';
 		ModelServiceSelectorItem,
 		YearServiceSelectorItem,
 		ManufacturerServiceSelectorItem,
+		
 		{
 			provide: YMMSelectorRule, 
 			useFactory: YMMSelectorFactory, 
@@ -67,7 +70,7 @@ import { HttpClient } from '@angular/common/http';
 		{
 			provide: MMYLocalSelectorRule,
 			useFactory: MMYLocalSelectorFactory,
-			deps: [YearsApiService, HttpClient, ModelApiService]
+			deps: [HttpClient, VehicleDataService]
 		}
 	],
 	exports: [

@@ -21,6 +21,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
+import {VehicleDataService} from './vehicle-data.service';
+
 
 @NgModule({
   declarations: [
@@ -45,7 +47,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 		MatProgressSpinnerModule
   ],
   providers: [
-		
+		VehicleDataService
 	],
   bootstrap: [AppComponent]
 })

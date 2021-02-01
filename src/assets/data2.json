@@ -9,7 +9,9 @@
 											"uvdb_base_vehicle": {
 													"uvdb_year_id": 2007,
 													"uvdb_make_id": 1367,
-													"uvdb_model_id": 65315
+													"uvdb_make_name": "make1",
+													"uvdb_model_id": 65315,
+													"uvdb_model_name": "model1"
 											}
 									},
 									{
@@ -18,7 +20,9 @@
 											"uvdb_base_vehicle": {
 													"uvdb_year_id": 2007,
 													"uvdb_make_id": 1367,
-													"uvdb_model_id": 67058
+													"uvdb_make_name": "make1",
+													"uvdb_model_id": 67058,
+													"uvdb_model_name": "model2"
 											}
 									},
 									{
@@ -27,7 +31,9 @@
 											"uvdb_base_vehicle": {
 													"uvdb_year_id": 1980,
 													"uvdb_make_id": 1377,
-													"uvdb_model_id": 64930
+													"uvdb_make_name": "make2",
+													"uvdb_model_id": 64930,
+													"uvdb_model_name": "model3"
 											}
 									},
 									{
@@ -36,7 +42,9 @@
 											"uvdb_base_vehicle": {
 													"uvdb_year_id": 1995,
 													"uvdb_make_id": 1356,
-													"uvdb_model_id": 64791
+													"uvdb_make_name": "make3",
+													"uvdb_model_id": 64791,
+													"uvdb_model_name": "model4"
 											}
 									},
 									{
@@ -45,7 +53,9 @@
 											"uvdb_base_vehicle": {
 													"uvdb_year_id": 2012,
 													"uvdb_make_id": 1352,
-													"uvdb_model_id": 64282
+													"uvdb_make_name": "make4",
+													"uvdb_model_id": 64282,
+													"uvdb_model_name": "model5"
 											}
 									},
 									{
@@ -54,7 +64,9 @@
 											"uvdb_base_vehicle": {
 													"uvdb_year_id": 2002,
 													"uvdb_make_id": 1380,
-													"uvdb_model_id": 103468
+													"uvdb_make_name": "make5",
+													"uvdb_model_id": 103468,
+													"uvdb_model_name": "model6"
 											}
 									},
 									{
@@ -63,7 +75,9 @@
 											"uvdb_base_vehicle": {
 													"uvdb_year_id": 1993,
 													"uvdb_make_id": 1730,
-													"uvdb_model_id": 109256
+													"uvdb_make_name": "make6",
+													"uvdb_model_id": 109256,
+													"uvdb_model_name": "model7"
 											}
 									},
 									{
@@ -72,7 +86,9 @@
 											"uvdb_base_vehicle": {
 													"uvdb_year_id": 2006,
 													"uvdb_make_id": 1353,
-													"uvdb_model_id": 65765
+													"uvdb_make_name": "make7",
+													"uvdb_model_id": 65765,
+													"uvdb_model_name": "model8"
 											}
 									},
 									{
@@ -81,7 +97,9 @@
 											"uvdb_base_vehicle": {
 													"uvdb_year_id": 2006,
 													"uvdb_make_id": 1380,
-													"uvdb_model_id": 103526
+													"uvdb_make_name": "make5",
+													"uvdb_model_id": 103526,
+													"uvdb_model_name": "model9"
 											}
 									},
 									{
@@ -90,7 +108,9 @@
 											"uvdb_base_vehicle": {
 													"uvdb_year_id": 2011,
 													"uvdb_make_id": 1380,
-													"uvdb_model_id": 65505
+													"uvdb_make_name": "make5",
+													"uvdb_model_id": 65505,
+													"uvdb_model_name": "model10"
 											}
 									}
 							]
